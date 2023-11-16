@@ -20,8 +20,6 @@ const options = {
     defaultDate: new Date(),
     minuteIncrement: 1,
     onClose(selectedDates) {
-        console.log(selectedDates[0]);
-
         if (selectedDates[0] < new Date()) {
             Notiflix.Notify.failure("Please choose a date in the future");
             refs.startBtn.disabled = true;
@@ -45,10 +43,8 @@ class Timer {
             let diff = new Date(refs.picker.value) - new Date();
             refs.startBtn.disabled = true;
             refs.picker.disabled = true;
-            console.log(diff)
             if (diff >= 0) {
                 let {days, hours, minutes, seconds} = convertMs(diff);
-                console.log({days, hours, minutes, seconds})
                 this.render({days, hours, minutes, seconds});
             } else {
                 clearInterval(this.intervalID);

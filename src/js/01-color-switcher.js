@@ -8,7 +8,7 @@ const refs = {
 };
 
 let intervalID;
-isActive = false;
+const isActive = false;
 
 refs.startBtn.addEventListener('click', () => {
     if (this.isActive) return;
