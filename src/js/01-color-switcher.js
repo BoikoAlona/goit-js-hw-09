@@ -8,18 +8,15 @@ const refs = {
 };
 
 let intervalID;
-const isActive = false;
 
 refs.startBtn.addEventListener('click', () => {
-    if (this.isActive) return;
-    this.isActive = true;
+    refs.startBtn.disabled = true;
     intervalID = setInterval(() => {
     document.body.style.backgroundColor = getRandomHexColor();
     }, 1000);
 });
 
 refs.stopBtn.addEventListener('click', () => {
-    if (!this.isActive) return;
-    this.isActive = false;
     clearInterval(intervalID);
+    refs.startBtn.disabled = false;
 });
